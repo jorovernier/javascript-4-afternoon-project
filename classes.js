@@ -57,12 +57,9 @@ class Employee {
   Call your new class Manager
 */
 
-class Manager {
+class Manager extends Employee{
   constructor(first_name, last_name, email, age){
-  this.first_name = first_name;
-  this.last_name = last_name;
-  this.email = email;
-  this.age = age;
+    super(first_name, last_name, email, age)
   this.reports = [];
 }
   makeWidget(){
@@ -157,31 +154,30 @@ class ProgressiveManager extends Manager {
         - The anonymous function should decrease wear_and_tear_count by 10, and set needs_reboot to false
 */
 
-// class Machine {
-//   constructor(){
-//   this.widgets_made_count = 0;
-//   this.wear_and_tear_count = 0;
-//   this.needs_reboot = false;
-//   }
+class Machine {
+  constructor(){
+  this.widgets_made_count = 0;
+  this.wear_and_tear_count = 0;
+  this.needs_reboot = false;
+  }
 
-//   makeWidgets(number){
-//     this.widgets_made_count += number;
-//     if(number % 50 == 0){
-//       this.wear_and_tear_count += number;
-//     }
-//   }
+  makeWidgets(number){
+    this.widgets_made_count += number;
+    var int = this.widgets_made_count/50;
+    this.wear_and_tear_count = int;
+  }
 
-//   fixMachine(){
-//     this.needs_reboot = true;
-//   }
+  fixMachine(){
+    this.needs_reboot = true;
+  }
 
-//   reboot(){
-//     if(this.needs_reboot === true){
-//       return function(){
-//         this.wear_and_tear_count -= 10;
-//         this.needs_reboot = false;
-//       }
-//     }
-//   }
-// }
-
+  reboot(){
+    if(this.needs_reboot = true){
+      console.log(this.wear_and_tear_count)
+      return () => {
+        this.wear_and_tear_count -= 10;
+        this.needs_reboot = false;
+      }
+    }
+  }
+}
